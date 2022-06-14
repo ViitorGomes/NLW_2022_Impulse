@@ -50,6 +50,7 @@ export function FeedbackContentStep({
             }
 
             await api.post('/feedbacks', feedback)
+            setIsSendingFeedback(false)
             onFeedbackSent()
 
         } catch (err) {
@@ -60,7 +61,6 @@ export function FeedbackContentStep({
             )
         }
 
-        setIsSendingFeedback(false)
     }
 
     return (
