@@ -6,8 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "prestart": "npx prisma generate",
-    "start": "node dist/src/server.js",
+    "prestart": "npx prisma migrate deploy",
+    "start": "node dist/server.js",
     "dev": "ts-node-dev src/server.ts"
   },
   "keywords": [],
