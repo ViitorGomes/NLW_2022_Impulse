@@ -49,7 +49,7 @@ export function FeedbackContentStep({
             <header>
                 <button 
                     type="button"
-                    className="top-5 left-5 absolute text-[#a1a1aa] hover:text-zinc-100"
+                    className="top-5 left-5 absolute text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-100"
                     onClick={onFeedbackRestartRequested}
                 >
                     <ArrowLeft/>
@@ -71,8 +71,8 @@ export function FeedbackContentStep({
                 <textarea
                     value={comment} 
                     onChange={(e) => setComment(e.target.value)}
-                    className="min-w-[304px] w-full min-h-[112px] p-1 text-sm 
-                    placeholder-zinc-400 text-zinc-100 border border-zinc-600 
+                    className="min-w-[304px] w-full min-h-[112px] p-1 text-sm placeholder-zinc-500 
+                    dark:placeholder-zinc-400 text-zinc-800 dark:text-zinc-100 border border-zinc-600 
                     bg-transparent rounded-md scrollbar-thumb-zinc-700 
                     scrollbar-track-transparent scrollbar-thin focus:border-brand-500 
                     focus:ring-brand-500 focus:ring-1 focus:outline-none resize-none"
@@ -86,11 +86,11 @@ export function FeedbackContentStep({
                     <button
                         disabled={comment === '' || isSendingFeedback ? true : false}
                         type="submit"
-                        className="p-2 bg-brand-500 rounded-md border-transparent flex-1
+                        className="p-2 text-white bg-brand-500 rounded-md border-transparent flex-1
                         flex justify-center items-center text-sm hover:bg-brand-300 
-                        focus:outline-none focus:ring-2 focus:ring-offset-2 
-                        focus:ring-offset-zinc-900 focus:ring-brand-500 transition-colors
-                        disabled:opacity-50 disabled:hover:bg-brand-500"
+                        focus:outline-none focus:ring-2 focus:ring-offset-2 dark:focus:ring-offset-zinc-900 
+                        focus:ring-brand-500 transition-colors disabled:opacity-50 
+                        disabled:hover:bg-brand-500"
                     >
                         {isSendingFeedback ? (
                             <LoadingSpin
