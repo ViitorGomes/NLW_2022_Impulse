@@ -1,19 +1,15 @@
 import { Moon, Sun } from "phosphor-react"
-import { useState } from "react"
+import { ThemeTypes } from "../App"
 
-export function ThemeSwitcher() {
-    function handleThemeChange() {
-        setTheme(() => {
-            const newTheme = theme === 'light' ? 'dark' : 'light'
+interface ThemeSwitcherProps {
+    handleThemeChange: () => void
+    theme: ThemeTypes
+}
 
-            window.document.documentElement.classList.remove(theme)
-            window.document.documentElement.classList.add(newTheme)
-
-            return newTheme
-        })
-    }
-
-    const [ theme, setTheme ] = useState<'light' | 'dark'>('light')
+export function ThemeSwitcher({
+    handleThemeChange,
+    theme
+} : ThemeSwitcherProps) {
 
     return (
         <div
