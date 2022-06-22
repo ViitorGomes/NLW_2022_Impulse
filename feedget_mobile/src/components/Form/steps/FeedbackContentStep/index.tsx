@@ -60,7 +60,6 @@ export function FeedbackContentStep({
                 [{text: 'Entendi'}]
             )
         }
-
     }
 
     return (
