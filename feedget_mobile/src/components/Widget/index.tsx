@@ -1,15 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useContext, useRef } from 'react';
 import { TouchableOpacity } from 'react-native';
 import { ChatTeardropDots } from "phosphor-react-native";
 import { styles } from './styles';
-import { theme } from '../../theme';
 import BottomSheet from '@gorhom/bottom-sheet'
 import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
 import { Form } from '../Form';
+import { colorsScheme } from '../../theme/colors'
+import { ThemeContext } from '../../context/themeContext';
+import { getBottomSpace } from 'react-native-iphone-x-helper';
 
 function Widget() {
 
   const bottomSheetRef = useRef<BottomSheet>(null)
+  const { theme } = useContext(ThemeContext)
 
   function handleOpenBottomSheet() {
     bottomSheetRef.current?.expand()
@@ -18,13 +21,16 @@ function Widget() {
   return (
     <>
       <TouchableOpacity 
-        style={styles.button}
+        style={[styles.button, {
+          backgroundColor: colorsScheme[theme!].brand,
+          shadowColor: colorsScheme[theme!].brand,
+        }]}
         onPress={handleOpenBottomSheet}
       >
         <ChatTeardropDots
           size={32}
           weight="bold"
-          color={theme.colors.text_on_brand_color}
+          color={colorsScheme[theme!].text_on_brand_color}
 
         />
       </TouchableOpacity>
@@ -34,8 +40,14 @@ function Widget() {
         }}
         ref={bottomSheetRef}
         snapPoints={[1, 281]}
-        backgroundStyle={styles.modal}
-        handleIndicatorStyle={styles.indicator}
+        backgroundStyle={{
+          backgroundColor: colorsScheme[theme!].surface_primary,
+          paddingBottom: getBottomSpace() + 16,
+        }}
+        handleIndicatorStyle={{
+          backgroundColor: colorsScheme[theme!].text_primary,
+          width: 56,
+        }}
       >
         <Form />
       </BottomSheet>

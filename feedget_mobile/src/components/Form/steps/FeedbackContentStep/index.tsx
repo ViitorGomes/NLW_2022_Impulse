@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { ArrowLeft } from 'phosphor-react-native';
 import { View, Text, TextInput, TouchableOpacity, Image, Alert } from 'react-native';
 import { FeedbackType } from '../..';
 import { feedbackTypes } from '../../../../utils/feedbackTypes';
-import { theme } from '../../../../theme';
 import { ScreenshotButton } from '../../../ScreenshotButton';
-
+import { colorsScheme } from '../../../../theme/colors';
 import { styles } from './styles';
 import { SubmitButton } from '../../../SubmitButton';
 import { api } from '../../../../libs/api';
 import * as FileSystem from 'expo-file-system'
+import { ThemeContext } from '../../../../context/themeContext';
 
 interface FeedbackContentStepProps {
     feedbackType: FeedbackType
@@ -27,6 +27,7 @@ export function FeedbackContentStep({
     const [ screenshot, setScreenshot ] = useState<string | null>(null)
     const [ comment, setComment ] = useState<string>('')
     const [ isSendingFeedback, setIsSendingFeedback ] = useState<boolean>(false)
+    const { theme } = useContext(ThemeContext)
 
     async function handleFeedbackSubmit() {
         if (isSendingFeedback) {
@@ -71,7 +72,7 @@ export function FeedbackContentStep({
                 <ArrowLeft 
                     size={24}
                     weight="bold"
-                    color={theme.colors.text_secondary}
+                    color={colorsScheme[theme!].text_secondary}
                 />
             </TouchableOpacity>
             <View style={styles.titleContainer}>
@@ -80,15 +81,20 @@ export function FeedbackContentStep({
                     style={styles.titleImage}
                 />
                 <Text
-                    style={styles.titleText}
+                    style={[styles.titleText, {
+                        color: colorsScheme[theme!].text_primary,
+                    }]}
                 >{feedbackTypeInfo.title}</Text>
             </View>
 
             <TextInput 
                 multiline
-                style={styles.commentInput}
+                style={[styles.commentInput, {
+                    borderColor: colorsScheme[theme!].stroke,
+                    color: colorsScheme[theme!].text_primary,
+                }]}
                 placeholder={feedbackTypeInfo.placeholder}
-                placeholderTextColor={theme.colors.text_secondary}
+                placeholderTextColor={colorsScheme[theme!].text_secondary}
                 value={comment}
                 onChangeText={(text) => {setComment(text)}}
                 autoCorrect={false}

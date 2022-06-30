@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '../../../../theme';
+import { fonts } from '../../../../theme/fonts';
 
 export const styles = StyleSheet.create({
   container: {
@@ -24,8 +24,7 @@ export const styles = StyleSheet.create({
   titleText: {
     fontSize: 20,
     lineHeight: 24,
-    fontFamily: theme.fonts.medium,
-    color: theme.colors.text_primary,
+    fontFamily: fonts.medium,
   },
   commentInput: {
     width: '100%',
@@ -33,9 +32,7 @@ export const styles = StyleSheet.create({
     borderRadius: 4,
     padding: 10,
     borderWidth: 1,
-    borderColor: theme.colors.stroke,
-    color: theme.colors.text_primary,
-    fontFamily: theme.fonts.regular,
+    fontFamily: fonts.regular,
     textAlignVertical: 'top',
     marginBottom: 8,
   },

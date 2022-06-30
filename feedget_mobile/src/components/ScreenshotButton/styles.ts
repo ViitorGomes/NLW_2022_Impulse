@@ -1,5 +1,4 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '../../theme';
 
 export const styles = StyleSheet.create({
   button: {
@@ -10,7 +9,6 @@ export const styles = StyleSheet.create({
     marginRight: 8,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.colors.surface_secondary,
   },
   removeIcon: {
     position: 'absolute',

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { TouchableOpacity, ActivityIndicator, Image, Alert } from 'react-native';
-import { Camera, Trash } from 'phosphor-react-native'
-import { captureScreen } from 'react-native-view-shot'
-
+import { Camera, Trash } from 'phosphor-react-native';
+import { captureScreen } from 'react-native-view-shot';
 import { styles } from './styles';
-import { theme } from '../../theme';
+import { colorsScheme } from '../../theme/colors';
+import { ThemeContext } from '../../context/themeContext';
 
 interface ScreenshotButtonProps {
     screenshot: string | null
@@ -17,6 +17,7 @@ export function ScreenshotButton({
 } : ScreenshotButtonProps) {
 
     const [ isTakingScreenshot, setIsTakingScreenshot ] = useState<boolean>(false)
+    const { theme } = useContext(ThemeContext)
 
     function handleTakeScreenshot() {
         setIsTakingScreenshot(true)
@@ -39,7 +40,9 @@ export function ScreenshotButton({
 
     return (
         <TouchableOpacity 
-            style={styles.button}
+            style={[styles.button, {
+                backgroundColor: colorsScheme[theme!].surface_secondary,
+            }]}
             onPress={() => screenshot ? onScreenshotTook(null) : handleTakeScreenshot()}
         >
             {
@@ -56,7 +59,7 @@ export function ScreenshotButton({
                                 <Trash 
                                     size={18}
                                     weight="fill"
-                                    color={theme.colors.text_secondary}
+                                    color={colorsScheme[theme!].text_secondary}
                                     style={styles.removeIcon}
                                 />
                             </>
@@ -64,7 +67,7 @@ export function ScreenshotButton({
                             <Camera 
                                 size={24}
                                 weight="bold"
-                                color={theme.colors.text_secondary}
+                                color={colorsScheme[theme!].text_secondary}
                             />
                         )
                     )

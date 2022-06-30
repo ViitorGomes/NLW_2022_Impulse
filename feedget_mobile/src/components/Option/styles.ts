@@ -1,9 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { theme } from '../../theme';
+import { fonts } from '../../theme/fonts';
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: theme.colors.surface_secondary,
     width: 104,
     height: 112,
     justifyContent: 'center',
@@ -17,10 +16,9 @@ export const styles = StyleSheet.create({
     height: 40,
   },
   text: {
-    color: theme.colors.text_primary,
     marginTop: 8,
     fontSize: 14,
     lineHeight: 24,
-    fontFamily: theme.fonts.medium,
+    fontFamily: fonts.medium,
   }
 });
