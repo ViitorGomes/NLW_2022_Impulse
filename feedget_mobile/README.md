@@ -6,6 +6,9 @@
 </div>
 <br/>
 
+#### Descrição:
+O Feedget mobile é um app feito em **React Native** para a criação de feedbacks de um app, onde o usuário selecionará primeiramente o tipo de feedback e será direcionado ao formulário de conteúdo do feedback, onde poderá escrever um comentário e tirar uma screenshot opcional. Ao enviar o feedback, uma tela de acradecimento é mostrada.
+
 #### Tecnologias utilizadas:
 - TypeScript
 - React Native
