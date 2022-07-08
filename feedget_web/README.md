@@ -6,6 +6,10 @@
 </div>
 <br/>
 
+#### Descrição:
+&nbsp;&nbsp; O Feedget web é um web app feito em **React JS** para a criação de feedbacks de um site, onde o usuário selecionará primeiramente o tipo de feedback e será direcionado ao formulário de conteúdo do feedback, onde poderá escrever um comentário e tirar uma screenshot opcional. Ao enviar o feedback, uma tela de acradecimento é mostrada.
+<br/>
+
 #### Tecnologias utilizadas:
 - TypeScript
 - React JS
